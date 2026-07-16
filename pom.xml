@@ -1,0 +1,23 @@
+<project xmlns="http://apache.org" ...>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.1</version>
+        <relativePath/>
+    </parent>
+    <groupId>com.tianshan</groupId>
+    <artifactId>haru-spring-boot-starter-parent</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <url>https://github.com</url>
+        </repository>
+    </distributionManagement>
+</project>
+
