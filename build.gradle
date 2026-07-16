@@ -1,0 +1,37 @@
+plugins {
+    id 'maven-publish'
+    id 'java-platform' // Simplifies BOM/Platform creation
+}
+
+group = 'com.github.tianshanmap'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    constraints {
+        // Import and inherit all dependencies managed by Spring Boot
+        api platform("org.springframework.boot:spring-boot-dependencies:3.3.0")
+    }
+}
+
+publishing {
+    publications {
+        gpr(MavenPublication) {
+            from components.javaPlatform
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://github.com")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
+
